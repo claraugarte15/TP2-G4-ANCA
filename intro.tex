@@ -1,0 +1,68 @@
+%----------------------------------------------------------------------------------------
+% Contenido del Informe - Introducción
+%----------------------------------------------------------------------------------------
+
+\section{Introducción}
+
+El presente trabajo estudia la estructura de costos de un productor de papa en Balcarce a partir de la función de producción:
+\begin{equation}
+    q(x) = 44x + 31x^2 - 2x^3, \qquad x \in [1;\,10],
+    \label{eq:produccion}
+\end{equation}
+donde $x$ representa las unidades de factor variable y $q(x)$ los kilogramos obtenidos. Para el Grupo~4, los parámetros económicos son $M=6$ y $N=4$, de donde resultan:
+\begin{equation}
+    CF = 1500 + 100(6) = 2100, \qquad P_v = 800 + 40(4) = 960.
+\end{equation}
+
+El análisis requiere resolver ecuaciones no lineales asociadas a condiciones de optimización económica. Para ello se emplean los métodos de \textbf{bisección} y \textbf{Newton-Raphson}, implementados en Python, buscando raíces con un mínimo de 6 cifras significativas.
+
+\section{Fundamentos teóricos}
+
+\subsection{Indicadores de producción y costos}
+
+La \textbf{producción marginal} y la \textbf{producción media} se definen como:
+\begin{equation}
+    \text{PMg}(x) = \frac{dq}{dx}, \qquad \text{PMe}(x) = \frac{q(x)}{x}.
+\end{equation}
+
+Los costos se descomponen en fijos y variables: $CV(x) = P_v \cdot x$ y $CT(x) = CF + CV(x)$. A partir de ellos se construyen los indicadores medios:
+\begin{equation}
+    CF_{me}(x) = \frac{CF}{q(x)}, \qquad
+    CV_{me}(x) = \frac{CV(x)}{q(x)}, \qquad
+    CM_e(x)    = \frac{CT(x)}{q(x)}.
+\end{equation}
+
+El \textbf{costo marginal} se obtiene por regla de la cadena:
+\begin{equation}
+    CM_g(x) = \frac{dCT/dx}{dq/dx}.
+\end{equation}
+
+\subsection{Puntos de referencia económicos}
+
+El \textbf{punto de cierre} es el mínimo del costo medio variable, caracterizado por $CM_g = CV_{me}$. Por debajo de este nivel el productor no recupera sus costos variables y conviene interrumpir la producción.
+
+El \textbf{punto de nivelación} es el mínimo del costo medio total, caracterizado por $CM_g = CM_e$. En este punto el beneficio económico es nulo y el productor cubre exactamente la totalidad de sus costos.
+
+La \textbf{curva de oferta} corresponde a la rama crescent del costo marginal a partir del punto de cierre: para cada precio $P \geq CV_{me}^{\min}$ el productor elige la cantidad que satisface $P = CM_g$.
+
+\subsection{Métodos numéricos de búsqueda de raíces}
+
+\subsubsection{Bisección}
+
+Dado un intervalo $[a,b]$ con $f(a)\cdot f(b) < 0$, el método evalúa iterativamente el punto medio $x_r = (a+b)/2$ y reemplaza el extremo que comparte signo con $f(x_r)$, reduciendo el intervalo a la mitad en cada paso. La convergencia es global y de orden lineal.
+
+\subsubsection{Newton-Raphson}
+
+Partiendo de una semilla $x_0$, la iteración es:
+\begin{equation}
+    x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
+\end{equation}
+La convergencia es de orden cuadrático cerca de la raíz, lo que duplica aproximadamente las cifras correctas en cada paso. Requiere conocer $f'(x)$ analíticamente y es sensible a la elección de $x_0$.
+
+\subsubsection{Criterio de parada}
+
+Se utiliza el error relativo aproximado:
+\begin{equation}
+    E_a = \left|\frac{x_n - x_{n-1}}{x_n}\right| \times 100,
+\end{equation}
+deteniéndose cuando $E_a < 10^{-6}$, lo que garantiza 6 cifras significativas.

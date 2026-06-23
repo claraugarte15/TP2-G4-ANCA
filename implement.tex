@@ -1,0 +1,587 @@
+%----------------------------------------------------------------------------------------
+% Contenido del Informe - Implementación
+%----------------------------------------------------------------------------------------
+
+\chapter{Implementación}
+
+Promedio de sextos dígitos = (4+9+0+9)/4 = 5.5 $\approx$ 6
+Grupo número 4, por lo tanto: 
+
+M = 6 
+N = 4 
+
+
+
+
+
+
+
+
+\section{Punto 1: Determinación de Costos.}
+
+Se pide obtener analíticamente ecuaciones de Costos medios totales, Costos medios variables, Costos fijos medios y Costos marginales en función de las unidades de factor variable. Por lo tanto obtenemos las siguientes ecuaciones:
+
+Con $P_v = 960$, $CF = 2100$ y $q(x) = 44x + 31x^2 - 2x^3$:
+
+\begin{align}
+    CV(x)      &= 960x, \\[4pt]
+    CT(x)      &= 960x + 2100, \\[4pt]
+    CF_{me}(x) &= \frac{2100}{44x + 31x^2 - 2x^3}, \\[4pt]
+    CV_{me}(x) &= \frac{960x}{44x + 31x^2 - 2x^3}
+                = \frac{960}{44 + 31x - 2x^2}, \\[4pt]
+    CM_e(x)    &= \frac{960x + 2100}{44x + 31x^2 - 2x^3}, \\[4pt]
+    CM_g(x)    &= \frac{960}{44 + 62x - 6x^2}.
+\end{align}
+
+Los códigos que se indican a continuación fueron escritos en una notebook de Colab \citep{Colab}.
+
+\subsection{Códigos: importación de paquetes generales}
+
+Para empezar, se indican los paquetes que serán necesarios importar para la ejecución de
+los códigos, ver Código \ref{cod:paquete}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Importación de paquetes,label={cod:paquete}]
+#-----------------------------------------------
+# Importación de paquetes
+#-----------------------------------------------
+import numpy as np
+import pandas as pd
+
+from matplotlib import pyplot as plt
+
+from io import StringIO
+from contextlib import redirect_stdout
+
+\end{lstlisting}
+
+\subsection{Códigos: Punto 1}
+
+Se copia el código para los gráficos, ver Código \ref{cod:codgraf}:
+
+\begin{lstlisting}[language=Python,frame=single,caption=Códigos de gráficos,label={cod:codgraf}]
+M = 6
+N = 4
+x = np.linspace (1,10,101)
+q = 44*x + 31*x**2 -2*x**3
+CostosFijos = 1500+100*M
+CostosFactorVariable = 800+40*N
+CostoVariableTotal = CostosFactorVariable*x
+CostoTotal = CostoVariableTotal + CostosFijos
+ProducciónMarginal = 44+62*x-6*x**2
+ProductividadMarginal = ProducciónMarginal/CostosFactorVariable
+CostoTotalMedio = CostoTotal/q
+CostoVariableMedio = CostoVariableTotal/q
+CostoFijoMedio = CostosFijos/q
+CostoMarginal = 1/ProductividadMarginal
+
+plt.plot(x,CostoVariableMedio, "-k",label = "Costo Variable Medio")
+plt.plot(x,CostoFijoMedio, "-g",label = "Costo Fijo Medio")
+plt.plot(x,CostoTotalMedio, "-r",label = "Costo Total Medio")
+plt.plot(x,CostoMarginal, "-b",label = "Costo Marginal")
+
+plt.title("Costos en función de las unidades del Factor Variable")
+plt.xlabel("x (unidad)")
+plt.ylabel("Costos [$/kg]")
+plt.legend()
+plt.show()
+
+plt.plot(q,CostoVariableMedio, "-k",label = "Costo Variable Medio")
+plt.plot(q,CostoFijoMedio, "-g",label = "Costo Fijo Medio")
+plt.plot(q,CostoTotalMedio, "-r",label = "Costo Total Medio")
+plt.plot(q,CostoMarginal, "-b",label = "Costo Marginal")
+
+plt.title("Costos en función de los kilogramos de papa")
+plt.xlabel("q (kilogramo de papa)")
+plt.ylabel("Costos [$/kg]")
+plt.legend()
+plt.show()
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\section{Punto 2: Curva de oferta}
+
+En el punto 2 se pedía obtener la curva de oferta. Para ello necesitamos obtener las unidades de factor variable a comprar para llegar al \textbf{punto de cierre} con 6 cifras significativas. El punto de cierre es la cantidad a producir para minimizar el Costo medio variable. También puede definirse como aquella cantidad producida en la que:
+
+La condición $CM_g = CV_{me}$ lleva a igualar denominadores (el numerador $960$ es común):
+\begin{equation}
+    44 + 62x - 6x^2 = 44 + 31x - 2x^2
+    \;\Longrightarrow\; 31x - 4x^2 = 0
+    \;\Longrightarrow\; f_2(x) = 4x^2 - 31x = 0.
+\end{equation}
+
+La raíz no nula coincide con la raíz exacta $4x^2 = 31x$ indicada por la consigna:
+\begin{equation}
+    \boxed{x_{\text{cierre}} = \frac{31}{4} = 7{,}75000.}
+\end{equation}
+
+Aplicando Newton-Raphson con $f_2'(x) = 8x - 31$ y $x_0 = 8$ se confirma el resultado con 6 cifras significativas en pocas iteraciones.
+
+La curva de oferta queda definida por:
+\begin{equation}
+    P(x) = \frac{960}{44 + 62x - 6x^2}, \qquad x \in [7{,}75;\,10].
+\end{equation}
+
+
+\subsection{Códigos Punto 2}
+Se muestran los códigos utilizados para llevar a cabo el método de Newton-Raphson:
+
+\begin{lstlisting}[language=Python,frame=single,caption= Función cuya raíz desea calcularse,label={cod:yval1}]
+def formulafunc(xval):
+    cuenta = 4 * xval**2 - 31 * xval
+  
+    yval = cuenta
+    return yval
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption= Derivada primera,label={cod:der1val1}]
+
+def formuladerivpri(xval):
+   
+    cuenta_derivada1 = 8 * xval - 31
+    
+    der1val = cuenta_derivada1
+    return der1val
+  
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda ,label={cod:der2val1}]
+def formuladerivseg(xval):
+   
+    cuenta_derivada2 = 8
+    
+    der2val = cuenta_derivada2
+    return der2val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Aplicación Newton-Raphson ,label={cod:NewRap1}]
+
+x0 = 8
+
+tol = 5 * 10**(-6)
+
+tipoerror = 'relativo'
+
+tipoerror = tipoerror.upper()
+
+tablanewton = newtonraphson(formulafunc, formuladerivpri, formuladerivseg, x0, tol, tipoerror)
+
+raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
+print('Raíz obtenida:', raiz)
+
+if tipoerror == 'ABSOLUTO':
+    cantidad = int(np.floor(- np.log10(tol / 0.5)))
+    redondeopunto2 = float(np.format_float_positional(raiz, cantidad))
+    precision = 'decimales significativos'
+    if cantidad == 1:
+        precision = 'decimal significativo'
+else:
+    cantidad = int(np.floor(- np.log10(tol / 5)))
+    redondeopunto2 = float(np.format_float_positional(float(np.format_float_scientific(raiz, cantidad-1))))
+    precision = 'cifras significativas'
+    if cantidad == 1:
+        precision = 'cifra significativa'
+
+print('Redondeo a', cantidad, precision, redondeopunto2)
+
+print('')
+print('Tabla paso a paso')
+
+print('Formato LaTeX:')
+print('')
+print(tablanewton.to_latex())
+
+print('')
+print('Formato Colab:')
+
+tablanewton
+\end{lstlisting}
+
+
+Una vez obtenida la función a evaluar, el $x_{0}$ y el valor de la tolerancia, se procede a calcular el punto de cierre y trazar la curva de oferta con el método solicitado. Se emplea el siguiente código:
+
+\begin{lstlisting}[language=Python,frame=single,caption=Cálculo unidades de factor variable para llegar al punto de cierre y configuración de la Curva de Oferta  ,label={cod:curvaoferta}]
+
+xof = np.linspace(redondeopunto2, 10, 50)
+
+qof = 44 * xof + 31 * xof**2 - 2 * xof**3
+
+CostoMarginal = 960 / (44 + 62 * xof - 6 * xof**2)
+
+plt.figure(figsize=(8, 5))
+plt.plot(qof, CostoMarginal, "-k", linewidth=2.5, label=r"Curva de Oferta ($CMg \geq CVMe$)")
+
+q_cierre = 44 * redondeopunto2 + 31 * redondeopunto2**2 - 2 * redondeopunto2**3
+CMg_cierre = 960 / (44 + 62 * redondeopunto2 - 6 * redondeopunto2**2)
+plt.plot(q_cierre, CMg_cierre, 'ro', label=f'Punto de Cierre (q={q_cierre:.2f} kg)')
+
+plt.title("Curva de Oferta del Productor", fontsize=12, fontweight='bold')
+plt.xlabel("Cantidad producida q [kg]", fontsize=10)
+plt.ylabel("Costo Marginal [$/kg]", fontsize=10)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.legend()
+plt.show()
+
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\section{Punto 3: Beneficio del productor.}
+
+Se pide calcular el beneficio que obtiene el productor (se trata de una competencia perfecta, es decir, que el precio es el del costo marginal), si la bolsa de 24 kg se cotiza en el Mercado Central a $240$.
+
+El precio por kilo es $P_k = 240/24 = \$10$. El ingreso total resulta:
+\begin{equation}
+    IT(x) = 10\,q(x) = 440x + 310x^2 - 20x^3.
+\end{equation}
+
+La función beneficio es:
+\begin{equation}
+    B(x) = IT(x) - CT(x) = -20x^3 + 310x^2 - 520x - 2100.
+\end{equation}
+
+La condición de máximo, $B'(x) = 0$, da:
+\begin{equation}
+    -60x^2 + 620x - 520 = 0
+    \label{eq:f3}
+\end{equation}
+
+Las raíces analíticas se calculan mediante la fórmula general para $N=4$:
+\begin{equation}
+    x = \dfrac{31}{6} \pm \dfrac{\sqrt{745-24(4)}}{6} = \dfrac{31 \pm \sqrt{649}}{6}
+\end{equation}
+
+La raíz que se encuentra dentro de nuestro rango de producción rentable es:
+\begin{equation}
+    \boxed{x^* = 9{,}41258 \quad \text{(6 c.s.)}}
+\end{equation}
+
+Con este valor:
+\begin{align}
+    q^* &= 44(9{,}41258) + 31(9{,}41258)^2 - 2(9{,}41258)^3 \approx 1385{,}85\ \text{kg}, \\[4pt]
+    CT^* &= 960(9{,}41258) + 2100 \approx \$11136{,}08, \\[4pt]
+    IT^* &= 10 \times 1385{,}85 = \$13858{,}50, \\[4pt]
+    \boxed{B^*}   &\boxed{{}\approx \$13858{,}50 - \$11136{,}08 = \$2722{,}42.}
+\end{align}
+
+
+\subsection{Código: Punto 3}
+Códigos para la obtención de la raíz de la función por Newton-Raphson:
+
+\begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse ,label={cod:funcbeneficio}]
+def formulafunc(xval):
+    yval = -60 * xval**2 + 620 * xval - 520
+    return yval
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función ,label={cod:der1beneficio}]
+def formuladerivpri(xval):
+  der1val = -120 * xval + 620
+  return der1val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función ,label={cod:der2beneficio}]
+  def formuladerivseg(xval):
+  der2val = -120
+  return der2val
+\end{lstlisting}
+
+Y a continuación, se muestra el código para calcular el beneficio. 
+\begin{lstlisting}[language=Python,frame=single,caption=Cálculo del beneficio,label={cod:beneficio}]
+# Definir valor de la aproximación inicial
+x0 = 9
+
+# Indicar valor de tolerancia
+tol = 5 * 10**(-6)
+
+# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas, en mayúsculas o en minúsculas)
+tipoerror = 'relativo'
+
+# No modificar las siguientes líneas
+tipoerror = tipoerror.upper()
+
+#Llamado a la función
+tablanewton = newtonraphson(formulafunc,formuladerivpri,formuladerivseg,x0,tol,tipoerror)
+
+#Resultados
+raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
+print('Raíz obtenida:',raiz)
+
+if tipoerror == 'ABSOLUTO':
+  cantidad = int(np.floor(- np.log10(tol / 0.5)))
+  redondeopunto3 = float(np.format_float_positional(raiz,cantidad))
+  precision = 'decimales significativos'
+  if cantidad == 1:
+    precision = 'decimal significativo'
+
+else:
+  cantidad = int(np.floor(- np.log10(tol / 5)))
+  redondeopunto3 = float(np.format_float_positional(float(np.format_float_scientific(raiz,cantidad-1))))
+  precision = 'cifras significativas'
+  if cantidad == 1:
+    precision = 'cifra significativa'
+
+print('Redondeo a',cantidad,precision,redondeopunto3)
+
+print('')
+print('Tabla paso a paso')
+
+print('Formato LaTeX:')
+print('')
+print(tablanewton.to_latex())
+
+print('')
+print('Formato Colab:')
+
+tablanewton
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\section{Punto 4: Precio de mercado de la bolsa}
+
+Un beneficio del 15\,\% sobre el costo total implica $P = 1{,}15\,CM_e(x)$. Combinando con $P = CM_g(x)$ y operando algebraicamente, se arriba al polinomio simplificado:
+\begin{equation}
+    f_4(x) = -4300x^3 + 26650x^2 + 99600x + 66000 = 0.
+    \label{eq:f4}
+\end{equation}
+
+Aplicando el método de Newton-Raphson con una aproximación inicial $x_0 = 8{,}5$, la variable independiente converge de forma exacta a:
+\begin{equation}
+    \boxed{x^{**} = 8{,}97052 \quad \text{(6 c.s.)}}
+\end{equation}
+
+Con este valor, evaluamos el costo marginal para hallar el precio de equilibrio por kilogramo:
+\begin{equation}
+    P = \frac{960}{44 + 62 \cdot (8{,}97052) - 6 \cdot (8{,}97052)^2} \approx \$8{,}21217/\text{kg}.
+\end{equation}
+
+El precio de la bolsa de 24\,kg resulta:
+\begin{equation}
+    \boxed{P_{\text{bolsa}} = 8{,}21217 \times 24 \approx \$197{,}09.}
+\end{equation}
+
+\subsection{Código: Punto 4}
+Códigos para la obtención de la raíz de la función por Newton-Raphson.
+
+\begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse,label={cod:funcp4}]
+def formulafunc(xval):
+  yval = -4300 * xval**3 + 26650 * xval**2 + 99600 * xval + 66000
+  return yval
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función.,label={cod:der1p4}]
+def formuladerivpri(xval):
+  der1val = -12900 * xval**2 + 53300 * xval + 99600
+  return der1val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función.,label={cod:der2p4}]
+def formuladerivseg(xval):
+  der2val = -25800 * xval + 53300
+  return der2val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,caption=Cálculo de unidades de factor variable,label={cod:calcP4}]
+# Definir valor de la aproximación inicial
+x0 = 8.5
+
+# Indicar valor de tolerancia
+tol = 5 * 10**(-6)
+
+# Indicar tipo de error a limitar
+tipoerror = 'relativo'
+tipoerror = tipoerror.upper()
+
+# Llamado a la función
+tablanewton = newtonraphson(formulafunc,formuladerivpri,formuladerivseg,x0,tol,tipoerror)
+
+# Resultados
+raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
+print('Raíz obtenida:',raiz)
+
+if tipoerror == 'ABSOLUTO':
+  cantidad = int(np.floor(- np.log10(tol / 0.5)))
+  redondeopunto4 = float(np.format_float_positional(raiz,cantidad))
+else:
+  cantidad = int(np.floor(- np.log10(tol / 5)))
+  redondeopunto4 = float(np.format_float_positional(float(np.format_float_scientific(raiz,cantidad-1))))
+
+print('Redondeo:', redondeopunto4)
+\end{lstlisting}
+
+And a continuación se muestra el código para calcular el precio requerido de la bolsa de 24 kg:
+
+\begin{lstlisting}[language=Python,frame=single,caption=Cálculo final precio de la bolsa,label={cod:calcbolsa}]
+x15 = redondeopunto4
+
+# Cálculo del precio por kg necesario para el equilibrio de mercado
+Precio_kg_15 = 960 / (44 + 62 * x15 - 6 * x15**2)
+
+# Cálculo del precio final de la bolsa de 24 kg
+pbolsa = Precio_kg_15 * 24
+
+print(f"Precio necesario de la bolsa para beneficio del 15%: ${pbolsa:.2f}")
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\section{Punto 5: Cantidad de bolsas a vender para cubrir costos medios totales}
+
+El punto de nivelación se obtiene de la condición analítica $CM_g = CM_e$:
+\begin{equation}
+    \dfrac{921600}{44 + 62x - 6x^2} = \dfrac{960x + 2100}{44x + 31x^2 - 2x^3}
+    \label{eq:f5}
+\end{equation}
+
+Multiplicando cruzado y agrupando todos los términos en un solo miembro, se obtiene la función cuadrática equivalente:
+\begin{equation}
+    2x^2 - 31x + 109{,}375 = 0.
+\end{equation}
+
+La raíz válida dentro del rango operativo real para nuestro grupo es:
+\begin{equation}
+    \boxed{x_{\text{niv}} = 8{,}47361 \quad \text{(6 c.s.)}}
+\end{equation}
+
+La producción de papa ($q$) calculada en este punto es:
+\begin{equation}
+    q = 44 \cdot 8{,}47361 + 31 \cdot 8{,}47361^2 - 2 \cdot 8{,}47361^3 = 1381{,}857\ \text{kg}.
+\end{equation}
+
+Sabiendo que las bolsas comerciales se fraccionan en presentaciones de 24\,kg:
+\begin{equation}
+    \text{Bolsas} = \frac{1381{,}857}{24} = 57{,}5774
+\end{equation}
+
+Se redondea hacia el entero superior para asegurar la cobertura absoluta de los costos medios totales, dando como resultado final:
+\begin{equation}
+    \boxed{\text{Bolsas} = 58\ \text{bolsas}.}
+\end{equation}
+
+
+\subsection{Código: Punto 5}
+A continuación se muestra el código implementado para resolver numéricamente la raíz 
+de la función de nivelación y determinar el volumen de factor variable óptimo.
+
+La condición $CMg = CMe$ lleva a la ecuación:
+\[
+\frac{960}{44+62x-6x^2} = \frac{960x+2100}{44x+31x^2-2x^3}
+\]
+
+Multiplicando en cruz y agrupando todos los términos en un solo miembro se obtiene 
+el polinomio cúbico equivalente:
+\[
+f_5(x) = 32x^3 - 143x^2 - 1085x - 770 = 0
+\]
+
+cuyas derivadas son:
+\[
+f_5'(x) = 96x^2 - 286x - 1085, \qquad f_5''(x) = 192x - 286
+\]
+
+\begin{lstlisting}[language=Python,frame=single,
+    caption=Función de nivelación,label={cod:funcp5}]
+def formulafunc(xval):
+    yval = 32 * xval**3 - 143 * xval**2 - 1085 * xval - 770
+    return yval
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,
+    caption=Derivada primera de la función de nivelación,label={cod:deriv1p5}]
+def formuladerivpri(xval):
+    der1val = 96 * xval**2 - 286 * xval - 1085
+    return der1val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,
+    caption=Derivada segunda de la función de nivelación,label={cod:deriv2p5}]
+def formuladerivseg(xval):
+    der2val = 192 * xval - 286
+    return der2val
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,frame=single,
+    caption=Cálculo de unidades de factor variable necesarias para cubrir costos 
+    medios totales,label={cod:calcp5}]
+# Definir valor de la aproximación inicial
+x0 = 9
+
+# Indicar valor de tolerancia
+tol = 5 * 10**(-6)
+
+# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas,
+# en mayúsculas o en minúsculas)
+tipoerror = 'relativo'
+
+# No modificar las siguientes líneas
+tipoerror = tipoerror.upper()
+
+# Llamado a la función
+tablanewton = newtonraphson(formulafunc, formuladerivpri, formuladerivseg,
+                            x0, tol, tipoerror)
+
+# Resultados
+raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
+print('Raíz obtenida:', raiz)
+
+if tipoerror == 'ABSOLUTO':
+    cantidad = int(np.floor(- np.log10(tol / 0.5)))
+    redondeopunto5 = float(np.format_float_positional(raiz, cantidad))
+    precision = 'decimales significativos'
+    if cantidad == 1:
+        precision = 'decimal significativo'
+else:
+    cantidad = int(np.floor(- np.log10(tol / 5)))
+    redondeopunto5 = float(np.format_float_positional(
+                    float(np.format_float_scientific(raiz, cantidad-1))))
+    precision = 'cifras significativas'
+    if cantidad == 1:
+        precision = 'cifra significativa'
+
+print('Redondeo a', cantidad, precision, redondeopunto5)
+print('')
+print('Tabla paso a paso')
+print('Formato LaTeX:')
+print('')
+print(tablanewton.to_latex())
+print('')
+print('Formato Colab:')
+tablanewton
+\end{lstlisting}
+
+Finalmente, se calcula la cantidad de bolsas a vender para cubrir los costos medios 
+totales, utilizando el valor de $x$ obtenido en el punto anterior.
+
+\begin{lstlisting}[language=Python,frame=single,
+    caption=Cantidad de bolsas finales,label={cod:calcfinalp5}]
+x_nivelacion = redondeopunto5
+
+# Cálculo de la producción q en base a las unidades de factor variable halladas
+q_nivelacion = 44 * x_nivelacion + 31 * x_nivelacion**2 - 2 * x_nivelacion**3
+
+# Determinación de la cantidad mínima de bolsas de 24 kg necesarias
+bolsasniv = q_nivelacion / 24
+print(f"Bolsas mínimas a vender para cubrir costos medios totales: {bolsasniv:.2f}")
+\end{lstlisting}

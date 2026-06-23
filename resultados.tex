@@ -1,0 +1,187 @@
+%----------------------------------------------------------------------------------------
+% Contenido del Informe - Resultados
+%----------------------------------------------------------------------------------------
+
+\chapter{Resultados}
+
+\section{Puntos 1 y 2}
+
+A continuación se mostrarán los gráficos obtenidos de los puntos 1 y 2:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{imagenes/costo.factor.var.png}
+	\caption{Costos en función de las unidades de factor variable}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{imagenes/costo.kg.png}
+	\caption{Costos en función de los kg de papa}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{imagenes/c.oferta.nueva.png}
+	\caption{Curva de la oferta}
+\end{figure}
+
+
+Se muestra la tabla correspondiente a las raíces de funciones calculadas:
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ccccccccc}
+\toprule
+\textbf{Paso (i)} & \textbf{xi} & \textbf{f(xi)} & \textbf{f'(xi)} & \textbf{x(i+1)} & \textbf{Error abs} & \textbf{Dec. sig} & \textbf{Error rel} & \textbf{Cifras sig} \\
+\midrule
+0 & 8.000000 & 8.000000 & 33.000000 & 7.757576 & 0.242424 & 0.000000 & 0.031250 & 2.000000 \\
+1 & 7.757576 & 0.235078 & 31.060606 & 7.750007 & 0.007568 & 1.000000 & 0.000977 & 3.000000 \\
+2 & 7.750007 & 0.000229 & 31.000059 & 7.750000 & 0.000007 & 4.000000 & 0.000001 & 6.000000 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Tabla Punto 2}
+\label{tab:punto2}
+\end{table}
+
+
+
+El resultado que se obtiene mediante este método se lo compara con la raíz exacta: $4x^3 = 31x^2$, que si se resuelve de forma analítica da dos raíces: $x = 7,75$, la cual está dentro del rango solicitado y coincide con precisión matemática con la obtenida mediante el método numérico; y $x = 0$, que al encontrarse fuera del rango de estudio se descarta.
+
+
+\section{Punto 3}
+
+Se muestra la tabla correspondiente a las raíces de funciones calculadas:
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+	\begin{tabular}{lrrrrrrrr}
+\toprule
+ & xi & f(xi) & f'(xi) & x(i+1) & Error abs & Decimales sig & Error rel & Cifras sig \\
+Paso (i) &  &  &  &  &  &  &  &  \\
+\midrule
+0 & 9.000000 & 200.000000 & -460.000000 & 9.434783 & 0.434783 & 0.000000 & 0.046083 & 2.000000 \\
+1 & 9.434783 & -11.342155 & -512.173913 & 9.412637 & 0.022145 & 1.000000 & 0.002353 & 3.000000 \\
+2 & 9.412637 & -0.029424 & -509.516498 & 9.412580 & 0.000058 & 3.000000 & 0.000006 & 5.000000 \\
+3 & 9.412580 & -0.000000 & -509.509568 & 9.412580 & 0.000000 & 9.000000 & 0.000000 & 11.000000 \\
+\bottomrule
+\end{tabular}
+}
+	\caption{Resultado raíz punto 3}
+	\label{tab:punto3}
+\end{table}
+
+
+Raíz exacta: 
+\begin{equation} 
+x = \dfrac{31}{6} \pm \dfrac{\sqrt{745-24N}}{6} 
+\end{equation} 
+
+Reemplazando por el valor de $N = 4$ asignado a nuestro grupo, se obtienen las siguientes soluciones analíticas:
+\begin{itemize}
+    \item $x_{1} = 9,41258$ (Valor que se encuentra dentro del rango de producción solicitado).
+    \item $x_{2} = 0,92075$ (Valor menor al punto de cierre, por lo que se descarta al no representar una producción económicamente rentable).
+\end{itemize}
+
+Se calcula el beneficio final utilizando la raíz válida redondeada a seis cifras significativas ($x = 9,41258$):
+
+\begin{equation}
+Beneficio = (44 \cdot 9,41258 + 31 \cdot 9,41258^2 - 2 \cdot 9,41258^3) \cdot 10 - (960 \cdot 9,41258 + 2100)
+\end{equation}
+
+Evaluando los componentes del ingreso y del costo total:
+\begin{itemize}
+    \item $q = 1385,849$ kg de papa
+    \item $Ingreso \ Total = 13858,49$ \$
+    \item $Costo \ Total = 9036,08 + 2100 = 11136,08$ \$
+\end{itemize}
+
+\begin{equation}
+\textbf{Beneficio = 2722,41 \ \$}
+\end{equation}
+
+
+\section{Punto 4}
+
+Se muestra la tabla correspondiente a las raíces de funciones calculadas:
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & xi & f(xi) & f'(xi) & x(i+1) & Error abs & Decimales sig & Error rel & Cifras sig \\
+Paso (i) &  &  &  &  &  &  &  &  \\
+\midrule
+0 & 9.000000 & 172.000000 & -460.000000 & 9.373913 & 0.373913 & 0.000000 & 0.039889 & 2.000000 \\
+1 & 9.373913 & -8.388658 & -504.869565 & 9.357298 & 0.016615 & 1.000000 & 0.001776 & 3.000000 \\
+2 & 9.357298 & -0.016564 & -502.875706 & 9.357265 & 0.000033 & 4.000000 & 0.000004 & 6.000000 \\
+\bottomrule
+\end{tabular}
+}
+	\caption{Tabla Punto 4}
+	\label{tab:punto4}
+\end{table}
+
+
+Se calcula el precio de la bolsa para tener un beneficio del 15\%:
+
+Usando la raíz obtenida por el método de Newton-Raphson corregida para los parámetros de nuestro grupo ($x = 8,97052$):
+
+\begin{equation}
+\textbf{Precio por kg} = Costo \ Marginal = \dfrac{960}{44 + 62 \cdot 8,97052 - 6 \cdot 8,97052^2} = \textbf{8,21217}
+\end{equation}
+
+Multiplicando el valor unitario por el kilaje comercial de la presentación estándar:
+
+\begin{equation}
+\textbf{Precio de la bolsa (24kg)} = Precio \ por \ kg \cdot 24 = 8,21217 \cdot 24 = \textbf{197,09}
+\end{equation}
+
+
+
+
+
+\section{Punto 5}
+
+Se muestra la tabla correspondiente a las raíces de funciones calculadas:
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & xi & f(xi) & f'(xi) & x(i+1) & Error abs & Decimales sig & Error rel & Cifras sig \\
+Paso (i) &  &  &  &  &  &  &  &  \\
+\midrule
+0 & 9.000000 & 1210.000000 & 4117.000000 & 8.706097 & 0.293903 & 0.000000 & 0.033758 & 2.000000 \\
+1 & 8.706097 & 61.466991 & 3701.483801 & 8.689491 & 0.016606 & 1.000000 & 0.001911 & 3.000000 \\
+2 & 8.689491 & 0.190896 & 3678.501433 & 8.689439 & 0.000052 & 3.000000 & 0.000006 & 5.000000 \\
+3 & 8.689439 & 0.000002 & 3678.429695 & 8.689439 & 0.000000 & 8.000000 & 0.000000 & 10.000000 \\
+\bottomrule
+\end{tabular}
+}
+    \caption{Resultado raíz punto 5 por Newton-Raphson}
+    \label{tab:punto5}
+\end{table}
+
+Se calcula la cantidad de bolsas que debería vender para cubrir los costos medios totales:
+
+Usando la raíz calculada por Newton-Raphson: $x = 8,47361$
+
+Teniendo en cuenta que la $q$ vendida es la misma que la $q$ producida:
+
+\begin{equation}
+q = 44 \cdot 8,47361 + 31 \cdot 8,47361^2 - 2 \cdot 8,47361^3 = 1381,857
+\end{equation}
+
+Sabiendo que las bolsas son de 24kg:
+
+\begin{equation}
+\dfrac{1381,857}{24} = 57,5774
+\end{equation}
+
+Se redondea para arriba y termina dando que $\textbf{Bolsas = 58 bolsas}$
