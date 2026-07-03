@@ -9,11 +9,11 @@
 \contentsline {lstlisting}{\numberline {1.9}{\ignorespaces Derivada primera de la función}}{8}{lstlisting.1.9}%
 \contentsline {lstlisting}{\numberline {1.10}{\ignorespaces Derivada segunda de la función}}{8}{lstlisting.1.10}%
 \contentsline {lstlisting}{\numberline {1.11}{\ignorespaces Cálculo del beneficio}}{8}{lstlisting.1.11}%
-\contentsline {lstlisting}{\numberline {1.12}{\ignorespaces Función cuya raíz desea calcularse}}{9}{lstlisting.1.12}%
-\contentsline {lstlisting}{\numberline {1.13}{\ignorespaces Derivada primera de la función.}}{9}{lstlisting.1.13}%
+\contentsline {lstlisting}{\numberline {1.12}{\ignorespaces Función cuya raíz desea calcularse}}{10}{lstlisting.1.12}%
+\contentsline {lstlisting}{\numberline {1.13}{\ignorespaces Derivada primera de la función.}}{10}{lstlisting.1.13}%
 \contentsline {lstlisting}{\numberline {1.14}{\ignorespaces Derivada segunda de la función.}}{10}{lstlisting.1.14}%
 \contentsline {lstlisting}{\numberline {1.15}{\ignorespaces Cálculo de unidades de factor variable}}{10}{lstlisting.1.15}%
-\contentsline {lstlisting}{\numberline {1.16}{\ignorespaces Cálculo final precio de la bolsa}}{10}{lstlisting.1.16}%
+\contentsline {lstlisting}{\numberline {1.16}{\ignorespaces Cálculo final precio de la bolsa}}{11}{lstlisting.1.16}%
 \contentsline {lstlisting}{\numberline {1.17}{\ignorespaces Función de nivelación}}{12}{lstlisting.1.17}%
 \contentsline {lstlisting}{\numberline {1.18}{\ignorespaces Derivada primera de la función de nivelación}}{12}{lstlisting.1.18}%
 \contentsline {lstlisting}{\numberline {1.19}{\ignorespaces Derivada segunda de la función de nivelación}}{12}{lstlisting.1.19}%

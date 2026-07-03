@@ -14,9 +14,6 @@ N = 4
 
 
 
-
-
-
 \section{Punto 1: Determinación de Costos.}
 
 Se pide obtener analíticamente ecuaciones de Costos medios totales, Costos medios variables, Costos fijos medios y Costos marginales en función de las unidades de factor variable. Por lo tanto obtenemos las siguientes ecuaciones:
@@ -239,6 +236,8 @@ plt.show()
 
 \section{Punto 3: Beneficio del productor.}
 
+\section{Punto 3: Beneficio del productor.}
+
 Se pide calcular el beneficio que obtiene el productor (se trata de una competencia perfecta, es decir, que el precio es el del costo marginal), si la bolsa de 24 kg se cotiza en el Mercado Central a $240$.
 
 El precio por kilo es $P_k = 240/24 = \$10$. El ingreso total resulta:
@@ -274,7 +273,6 @@ Con este valor:
     IT^* &= 10 \times 1385{,}85 = \$13858{,}50, \\[4pt]
     \boxed{B^*}   &\boxed{{}\approx \$13858{,}50 - \$11136{,}08 = \$2722{,}42.}
 \end{align}
-
 
 \subsection{Código: Punto 3}
 Códigos para la obtención de la raíz de la función por Newton-Raphson:
@@ -369,12 +367,12 @@ Aplicando el método de Newton-Raphson con una aproximación inicial $x_0 = 8{,}
 
 Con este valor, evaluamos el costo marginal para hallar el precio de equilibrio por kilogramo:
 \begin{equation}
-    P = \frac{960}{44 + 62 \cdot (8{,}97052) - 6 \cdot (8{,}97052)^2} \approx \$8{,}21217/\text{kg}.
+    P = \frac{960}{44 + 62 \cdot (8{,}97052) - 6 \cdot (8{,}97052)^2} \approx \$8{,}18042/\text{kg}.
 \end{equation}
 
 El precio de la bolsa de 24\,kg resulta:
 \begin{equation}
-    \boxed{P_{\text{bolsa}} = 8{,}21217 \times 24 \approx \$197{,}09.}
+    \boxed{P_{\text{bolsa}} = 8{,}18042 \times 24 \approx \$196{,}33.}
 \end{equation}
 
 \subsection{Código: Punto 4}
@@ -382,48 +380,69 @@ Códigos para la obtención de la raíz de la función por Newton-Raphson.
 
 \begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse,label={cod:funcp4}]
 def formulafunc(xval):
-  yval = -4300 * xval**3 + 26650 * xval**2 + 99600 * xval + 66000
+  yval = 4300 * xval**3 - 26650 * xval**2 - 99600 * xval -66000
   return yval
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función.,label={cod:der1p4}]
 def formuladerivpri(xval):
-  der1val = -12900 * xval**2 + 53300 * xval + 99600
+  der1val = 12900 * xval**2 -53300 * xval - 99600
   return der1val
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función.,label={cod:der2p4}]
 def formuladerivseg(xval):
-  der2val = -25800 * xval + 53300
+    der2val = 25800 * xval - 53300
   return der2val
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python,frame=single,caption=Cálculo de unidades de factor variable,label={cod:calcP4}]
 # Definir valor de la aproximación inicial
-x0 = 8.5
+x0 = 9
 
 # Indicar valor de tolerancia
 tol = 5 * 10**(-6)
 
-# Indicar tipo de error a limitar
+# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas, en mayúsculas o en minúsculas)
 tipoerror = 'relativo'
+
+# No modificar las siguientes líneas
 tipoerror = tipoerror.upper()
 
-# Llamado a la función
+#Llamado a la función
 tablanewton = newtonraphson(formulafunc,formuladerivpri,formuladerivseg,x0,tol,tipoerror)
 
-# Resultados
+#Resultados
 raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
 print('Raíz obtenida:',raiz)
 
 if tipoerror == 'ABSOLUTO':
   cantidad = int(np.floor(- np.log10(tol / 0.5)))
   redondeopunto4 = float(np.format_float_positional(raiz,cantidad))
+  precision = 'decimales significativos'
+  if cantidad == 1:
+    precision = 'decimal significativo'
+
 else:
   cantidad = int(np.floor(- np.log10(tol / 5)))
   redondeopunto4 = float(np.format_float_positional(float(np.format_float_scientific(raiz,cantidad-1))))
+  precision = 'cifras significativas'
+  if cantidad == 1:
+    precision = 'cifra significativa'
 
-print('Redondeo:', redondeopunto4)
+print('Redondeo a',cantidad,precision,redondeopunto4)
+
+print('')
+print('Tabla paso a paso')
+
+print('Formato LaTeX:')
+print('')
+print(tablanewton.to_latex())
+
+print('')
+print('Formato Colab:')
+
+tablanewton
 \end{lstlisting}
 
 And a continuación se muestra el código para calcular el precio requerido de la bolsa de 24 kg:
@@ -431,13 +450,17 @@ And a continuación se muestra el código para calcular el precio requerido de l
 \begin{lstlisting}[language=Python,frame=single,caption=Cálculo final precio de la bolsa,label={cod:calcbolsa}]
 x15 = redondeopunto4
 
+x15 = round(redondeopunto4, 5)
+CFacVar = CostosFactorVariable
+
 # Cálculo del precio por kg necesario para el equilibrio de mercado
-Precio_kg_15 = 960 / (44 + 62 * x15 - 6 * x15**2)
+Precio_kg_15 = CFacVar / (44 + 62 * x15 - 6 * x15**2)
 
 # Cálculo del precio final de la bolsa de 24 kg
 pbolsa = Precio_kg_15 * 24
 
 print(f"Precio necesario de la bolsa para beneficio del 15%: ${pbolsa:.2f}")
+
 \end{lstlisting}
 
 
@@ -451,35 +474,34 @@ print(f"Precio necesario de la bolsa para beneficio del 15%: ${pbolsa:.2f}")
 
 El punto de nivelación se obtiene de la condición analítica $CM_g = CM_e$:
 \begin{equation}
-    \dfrac{921600}{44 + 62x - 6x^2} = \dfrac{960x + 2100}{44x + 31x^2 - 2x^3}
+    \dfrac{960}{44 + 62x - 6x^2} = \dfrac{960x + 2100}{44x + 31x^2 - 2x^3}
     \label{eq:f5}
 \end{equation}
 
-Multiplicando cruzado y agrupando todos los términos en un solo miembro, se obtiene la función cuadrática equivalente:
+Multiplicando en cruz y agrupando todos los términos en un solo miembro se obtiene el polinomio cúbico equivalente:
 \begin{equation}
-    2x^2 - 31x + 109{,}375 = 0.
+    32x^3 - 143x^2 - 1085x - 770 = 0.
 \end{equation}
 
 La raíz válida dentro del rango operativo real para nuestro grupo es:
 \begin{equation}
-    \boxed{x_{\text{niv}} = 8{,}47361 \quad \text{(6 c.s.)}}
+    \boxed{x_{\text{niv}} = 8{,}68944 \quad \text{(6 c.s.)}}
 \end{equation}
 
 La producción de papa ($q$) calculada en este punto es:
 \begin{equation}
-    q = 44 \cdot 8{,}47361 + 31 \cdot 8{,}47361^2 - 2 \cdot 8{,}47361^3 = 1381{,}857\ \text{kg}.
+    q = 44 \cdot 8{,}68944 + 31 \cdot 8{,}68944^2 - 2 \cdot 8{,}68944^3 = 1410{,}816\ \text{kg}.
 \end{equation}
 
 Sabiendo que las bolsas comerciales se fraccionan en presentaciones de 24\,kg:
 \begin{equation}
-    \text{Bolsas} = \frac{1381{,}857}{24} = 57{,}5774
+    \text{Bolsas} = \frac{1410{,}816}{24} = 58{,}7840
 \end{equation}
 
 Se redondea hacia el entero superior para asegurar la cobertura absoluta de los costos medios totales, dando como resultado final:
 \begin{equation}
-    \boxed{\text{Bolsas} = 58\ \text{bolsas}.}
+    \boxed{\text{Bolsas} = 59\ \text{bolsas}.}
 \end{equation}
-
 
 \subsection{Código: Punto 5}
 A continuación se muestra el código implementado para resolver numéricamente la raíz 

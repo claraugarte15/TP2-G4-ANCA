@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.1)  23 JUN 2026 10:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.1)  3 JUL 2026 11:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -984,7 +984,7 @@ Package biblatex Info: Reference segment=0 on input line 210.
 \openout2 = `tapa.aux'.
 
  (./tapa.tex
-<imagenes/Logos-UTN-BA.png, id=108, 225.84375pt x 127.22531pt>
+<imagenes/Logos-UTN-BA.png, id=112, 225.84375pt x 127.22531pt>
 File: imagenes/Logos-UTN-BA.png Graphic file (type png)
 <use imagenes/Logos-UTN-BA.png>
 Package pdftex.def Info: imagenes/Logos-UTN-BA.png  used on input line 89.
@@ -1087,8 +1087,8 @@ Cap\'{\i }tulo 1.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 43.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 43.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 40.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 40.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [3
@@ -1096,45 +1096,45 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 
 
-] [4] [5] [6] [7] [8] [9]
+] [4] [5] [6] [7] [8] [9] [10]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 440.
+(Font)              <10> on input line 462.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 440.
+(Font)              <7> on input line 462.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 440.
- [10] [11] [12]) [13]
+(Font)              <5> on input line 462.
+ [11] [12] [13]) [14]
 \openout2 = `resultados.aux'.
 
  (./resultados.tex
 Cap\'{\i }tulo 2.
-<imagenes/costo.factor.var.png, id=672, 566.115pt x 452.69125pt>
+<imagenes/costo.factor.var.png, id=708, 566.115pt x 452.69125pt>
 File: imagenes/costo.factor.var.png Graphic file (type png)
 <use imagenes/costo.factor.var.png>
 Package pdftex.def Info: imagenes/costo.factor.var.png  used on input line 13.
 (pdftex.def)             Requested size: 364.19667pt x 291.23415pt.
-<imagenes/costo.kg.png, id=673, 572.1375pt x 449.68pt>
+<imagenes/costo.kg.png, id=709, 572.1375pt x 449.68pt>
 File: imagenes/costo.kg.png Graphic file (type png)
 <use imagenes/costo.kg.png>
 Package pdftex.def Info: imagenes/costo.kg.png  used on input line 19.
 (pdftex.def)             Requested size: 364.19667pt x 286.25037pt.
-[14
+[15
 
 
 
 
  <./imagenes/costo.factor.var.png>]
-<imagenes/c.oferta.nueva.png, id=680, 503.7219pt x 339.669pt>
+<imagenes/c.oferta.nueva.png, id=715, 503.7219pt x 339.669pt>
 File: imagenes/c.oferta.nueva.png Graphic file (type png)
 <use imagenes/c.oferta.nueva.png>
 Package pdftex.def Info: imagenes/c.oferta.nueva.png  used on input line 25.
 (pdftex.def)             Requested size: 364.19667pt x 245.58252pt.
- [15 <./imagenes/costo.kg.png> <./imagenes/c.oferta.nueva.png>] [16]) [17]
+ [16 <./imagenes/costo.kg.png> <./imagenes/c.oferta.nueva.png>] [17] [18]) [19]
 \openout2 = `discusion.aux'.
 
  (./discusion.tex
 Cap\'{\i }tulo 3.
-) [18
+) [20
 
 
 
@@ -1144,7 +1144,7 @@ Cap\'{\i }tulo 3.
 
  (./apendice_A.tex
 Ap\'{e}ndice A.
-) [19
+) [21
 
 
 
@@ -1154,7 +1154,7 @@ Overfull \hbox (90.17313pt too wide) in paragraph at lines 286--286
 [][]\T1/lmr/m/n/12 4, G. (2026). TP2 - Co-lab Gru-po 4. []$https : / / colab . research . google . com / drive / 1CB6XRVXGplnbesz4sbzeod _
  []
 
-[20
+[22
 
 
 
@@ -1168,24 +1168,24 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `"Proyecto Ejemplo - Versión Grupal".out' has not changed.
-(rerunfilecheck)             Checksum: FD30015EDD210BFEE11D730A2E052DE1;4468.
+(rerunfilecheck)             Checksum: 9D5333FBEAFCA649D87CBE8E2E85C7CC;4700.
 Package logreq Info: Writing requests to '"Proyecto Ejemplo - Versión Grupal".run.xml'.
 \openout1 = `"Proyecto Ejemplo - Versión Grupal.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31666 strings out of 467525
- 607689 string characters out of 5418983
- 1944051 words of memory out of 5000000
- 59720 multiletter control sequences out of 15000+600000
+ 31695 strings out of 467525
+ 608150 string characters out of 5418983
+ 1952137 words of memory out of 5000000
+ 59723 multiletter control sequences out of 15000+600000
  705905 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,13n,79p,1216b,4990s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on "Proyecto Ejemplo - Versión Grupal.pdf" (25 pages, 687575 bytes).
+Output written on "Proyecto Ejemplo - Versión Grupal.pdf" (27 pages, 694792 bytes).
 PDF statistics:
- 877 PDF objects out of 1000 (max. 8388607)
- 806 compressed objects within 9 object streams
- 414 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 923 PDF objects out of 1000 (max. 8388607)
+ 850 compressed objects within 9 object streams
+ 440 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 
