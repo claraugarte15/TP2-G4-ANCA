@@ -51,18 +51,48 @@ La \textbf{curva de oferta} corresponde a la rama crescent del costo marginal a 
 
 Dado un intervalo $[a,b]$ con $f(a)\cdot f(b) < 0$, el método evalúa iterativamente el punto medio $x_r = (a+b)/2$ y reemplaza el extremo que comparte signo con $f(x_r)$, reduciendo el intervalo a la mitad en cada paso. La convergencia es global y de orden lineal.
 
-\subsubsection{Newton-Raphson}
+\\subsubsection{Newton-Raphson}
 
 Partiendo de una semilla $x_0$, la iteración es:
 \begin{equation}
     x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
 \end{equation}
+
 La convergencia es de orden cuadrático cerca de la raíz, lo que duplica aproximadamente las cifras correctas en cada paso. Requiere conocer $f'(x)$ analíticamente y es sensible a la elección de $x_0$.
+
+Para justificar la elección de la aproximación inicial $x_0$, se utiliza el siguiente criterio de convergencia:
+\begin{equation}
+    \left|
+    \frac{f(x_0)\,f''(x_0)}
+    {[f'(x_0)]^2}
+    \right| < 1.
+\end{equation}
+
+Por lo tanto, en cada aplicación del método de Newton-Raphson se calculan la primera derivada $f'(x)$ y la segunda derivada $f''(x)$, y se verifica este criterio para la aproximación inicial $x_0$ elegida.
 
 \subsubsection{Criterio de parada}
 
-Se utiliza el error relativo aproximado:
+Para controlar la precisión de las aproximaciones se utilizan el error absoluto aproximado y el error relativo aproximado.
+
+El error absoluto aproximado se define como:
 \begin{equation}
-    E_a = \left|\frac{x_n - x_{n-1}}{x_n}\right| \times 100,
+    E_{\mathrm{abs}} = \left|x_n-x_{n-1}\right|.
 \end{equation}
-deteniéndose cuando $E_a < 10^{-6}$, lo que garantiza 6 cifras significativas.
+
+El error relativo aproximado se define como:
+\begin{equation}
+    E_r =
+    \left|
+    \frac{x_n-x_{n-1}}{x_n}
+    \right|.
+\end{equation}
+
+Para garantizar al menos $n$ cifras significativas, el error relativo aproximado debe cumplir:
+\begin{equation}
+    E_r < 0.5 \times 10^{1-n}.
+\end{equation}
+
+En este trabajo se buscan $6$ cifras significativas, por lo que el criterio de parada adoptado es:
+\begin{equation}
+    E_r < 0.5 \times 10^{-5}.
+\end{equation}

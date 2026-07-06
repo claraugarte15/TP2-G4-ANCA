@@ -117,7 +117,41 @@ La raíz no nula coincide con la raíz exacta $4x^2 = 31x$ indicada por la consi
     \boxed{x_{\text{cierre}} = \frac{31}{4} = 7{,}75000.}
 \end{equation}
 
-Aplicando Newton-Raphson con $f_2'(x) = 8x - 31$ y $x_0 = 8$ se confirma el resultado con 6 cifras significativas en pocas iteraciones.
+Para aplicar el método de Newton-Raphson se utilizan la primera y la segunda derivada de la función $f_2(x)$. Estas son:
+
+\begin{equation}
+    f_2'(x) = 8x - 31,
+\end{equation}
+
+\begin{equation}
+    f_2''(x) = 8.
+\end{equation}
+
+Se adopta como aproximación inicial $x_0 = 8$. Para justificar esta elección, se verifica el criterio de convergencia:
+
+\begin{equation}
+    \left|
+    \frac{f_2(x_0)\,f_2''(x_0)}
+    {[f_2'(x_0)]^2}
+    \right| < 1.
+\end{equation}
+
+Evaluando en $x_0 = 8$:
+
+\begin{equation}
+    \left|
+    \frac{f_2(8)\,f_2''(8)}
+    {[f_2'(8)]^2}
+    \right|
+    =
+    \left|
+    \frac{8 \cdot 8}{33^2}
+    \right|
+    =
+    0{,}05877 < 1.
+\end{equation}
+
+Por lo tanto, la aproximación inicial $x_0 = 8$ cumple con el criterio de convergencia. Aplicando Newton-Raphson se confirma el resultado con 6 cifras significativas en pocas iteraciones.
 
 La curva de oferta queda definida por:
 \begin{equation}
@@ -229,16 +263,9 @@ plt.show()
 
 
 
-
-
-
-
-
 \section{Punto 3: Beneficio del productor.}
 
-\section{Punto 3: Beneficio del productor.}
-
-Se pide calcular el beneficio que obtiene el productor (se trata de una competencia perfecta, es decir, que el precio es el del costo marginal), si la bolsa de 24 kg se cotiza en el Mercado Central a $240$.
+Se pide calcular el beneficio que obtiene el productor (se trata de una competencia perfecta, es decir, que el precio es el del costo marginal), si la bolsa de 24 kg se cotiza en el Mercado Central a \$240.
 
 El precio por kilo es $P_k = 240/24 = \$10$. El ingreso total resulta:
 \begin{equation}
@@ -252,13 +279,14 @@ La función beneficio es:
 
 La condición de máximo, $B'(x) = 0$, da:
 \begin{equation}
-    -60x^2 + 620x - 520 = 0
+    f_3(x) = -60x^2 + 620x - 520 = 0.
     \label{eq:f3}
 \end{equation}
 
 Las raíces analíticas se calculan mediante la fórmula general para $N=4$:
 \begin{equation}
-    x = \dfrac{31}{6} \pm \dfrac{\sqrt{745-24(4)}}{6} = \dfrac{31 \pm \sqrt{649}}{6}
+    x = \dfrac{31}{6} \pm \dfrac{\sqrt{745-24(4)}}{6}
+    = \dfrac{31 \pm \sqrt{649}}{6}.
 \end{equation}
 
 La raíz que se encuentra dentro de nuestro rango de producción rentable es:
@@ -266,71 +294,140 @@ La raíz que se encuentra dentro de nuestro rango de producción rentable es:
     \boxed{x^* = 9{,}41258 \quad \text{(6 c.s.)}}
 \end{equation}
 
+Para aplicar el método de Newton-Raphson se utilizan la primera y la segunda derivada de la función $f_3(x)$. Estas son:
+
+\begin{equation}
+    f_3'(x) = -120x + 620,
+\end{equation}
+
+\begin{equation}
+    f_3''(x) = -120.
+\end{equation}
+
+Se adopta como aproximación inicial $x_0 = 9$. Para justificar esta elección, se verifica el criterio de convergencia:
+
+\begin{equation}
+    \left|
+    \frac{f_3(x_0)\,f_3''(x_0)}
+    {[f_3'(x_0)]^2}
+    \right| < 1.
+\end{equation}
+
+Evaluando en $x_0 = 9$:
+
+\begin{equation}
+    \left|
+    \frac{f_3(9)\,f_3''(9)}
+    {[f_3'(9)]^2}
+    \right|
+    =
+    \left|
+    \frac{200 \cdot (-120)}
+    {(-460)^2}
+    \right|
+    =
+    0{,}11342 < 1.
+\end{equation}
+
+Por lo tanto, la aproximación inicial $x_0 = 9$ cumple con el criterio de convergencia y resulta adecuada para aplicar el método de Newton-Raphson.
+
+
 Con este valor:
 \begin{align}
-    q^* &= 44(9{,}41258) + 31(9{,}41258)^2 - 2(9{,}41258)^3 \approx 1385{,}85\ \text{kg}, \\[4pt]
-    CT^* &= 960(9{,}41258) + 2100 \approx \$11136{,}08, \\[4pt]
-    IT^* &= 10 \times 1385{,}85 = \$13858{,}50, \\[4pt]
-    \boxed{B^*}   &\boxed{{}\approx \$13858{,}50 - \$11136{,}08 = \$2722{,}42.}
+    q^* &= 44(9{,}41258) + 31(9{,}41258)^2 - 2(9{,}41258)^3
+    \approx 1492{,}80\ \text{kg}, \\[4pt]
+    CT^* &= 960(9{,}41258) + 2100
+    \approx \$11136{,}08, \\[4pt]
+    IT^* &= 10 \times 1492{,}80
+    \approx \$14928{,}04, \\[4pt]
+    \boxed{B^*} &\boxed{{}\approx \$14928{,}04 - \$11136{,}08
+    = \$3791{,}96.}
 \end{align}
 
 \subsection{Código: Punto 3}
+
 Códigos para la obtención de la raíz de la función por Newton-Raphson:
 
-\begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse ,label={cod:funcbeneficio}]
+\begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse,label={cod:funcbeneficio}]
 def formulafunc(xval):
     yval = -60 * xval**2 + 620 * xval - 520
     return yval
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función ,label={cod:der1beneficio}]
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función,label={cod:der1beneficio}]
 def formuladerivpri(xval):
-  der1val = -120 * xval + 620
-  return der1val
+    der1val = -120 * xval + 620
+    return der1val
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función ,label={cod:der2beneficio}]
-  def formuladerivseg(xval):
-  der2val = -120
-  return der2val
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función,label={cod:der2beneficio}]
+def formuladerivseg(xval):
+    der2val = -120
+    return der2val
 \end{lstlisting}
 
-Y a continuación, se muestra el código para calcular el beneficio. 
-\begin{lstlisting}[language=Python,frame=single,caption=Cálculo del beneficio,label={cod:beneficio}]
+Y a continuación, se muestra el código utilizado para aplicar el método de Newton-Raphson.
+
+\begin{lstlisting}[language=Python,frame=single,caption=Aplicación del método de Newton-Raphson,label={cod:beneficio}]
 # Definir valor de la aproximación inicial
 x0 = 9
 
 # Indicar valor de tolerancia
 tol = 5 * 10**(-6)
 
-# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas, en mayúsculas o en minúsculas)
+# Indicar tipo de error a limitar
 tipoerror = 'relativo'
 
 # No modificar las siguientes líneas
 tipoerror = tipoerror.upper()
 
-#Llamado a la función
-tablanewton = newtonraphson(formulafunc,formuladerivpri,formuladerivseg,x0,tol,tipoerror)
+# Llamado a la función
+tablanewton = newtonraphson(
+    formulafunc,
+    formuladerivpri,
+    formuladerivseg,
+    x0,
+    tol,
+    tipoerror
+)
 
-#Resultados
+# Resultados
 raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
-print('Raíz obtenida:',raiz)
+print('Raíz obtenida:', raiz)
 
 if tipoerror == 'ABSOLUTO':
-  cantidad = int(np.floor(- np.log10(tol / 0.5)))
-  redondeopunto3 = float(np.format_float_positional(raiz,cantidad))
-  precision = 'decimales significativos'
-  if cantidad == 1:
-    precision = 'decimal significativo'
+    cantidad = int(np.floor(-np.log10(tol / 0.5)))
+    redondeopunto3 = float(
+        np.format_float_positional(raiz, cantidad)
+    )
+    precision = 'decimales significativos'
+
+    if cantidad == 1:
+        precision = 'decimal significativo'
 
 else:
-  cantidad = int(np.floor(- np.log10(tol / 5)))
-  redondeopunto3 = float(np.format_float_positional(float(np.format_float_scientific(raiz,cantidad-1))))
-  precision = 'cifras significativas'
-  if cantidad == 1:
-    precision = 'cifra significativa'
+    cantidad = int(np.floor(-np.log10(tol / 5)))
+    redondeopunto3 = float(
+        np.format_float_positional(
+            float(
+                np.format_float_scientific(
+                    raiz,
+                    cantidad - 1
+                )
+            )
+        )
+    )
+    precision = 'cifras significativas'
 
-print('Redondeo a',cantidad,precision,redondeopunto3)
+    if cantidad == 1:
+        precision = 'cifra significativa'
+
+print(
+    'Redondeo a',
+    cantidad,
+    precision,
+    redondeopunto3
+)
 
 print('')
 print('Tabla paso a paso')
@@ -344,93 +441,229 @@ print('Formato Colab:')
 
 tablanewton
 \end{lstlisting}
-
-
-
-
-
-
-
 
 \section{Punto 4: Precio de mercado de la bolsa}
 
-Un beneficio del 15\,\% sobre el costo total implica $P = 1{,}15\,CM_e(x)$. Combinando con $P = CM_g(x)$ y operando algebraicamente, se arriba al polinomio simplificado:
+Se busca determinar el precio de mercado de la bolsa de 24 kg que permita obtener un beneficio del 15\,\% sobre las ventas.
+
+En este caso, el 100\,\% está representado por la venta. Por lo tanto, si el beneficio representa el 15\,\% de la venta, el costo total representa el 85\,\% restante:
+
 \begin{equation}
-    f_4(x) = -4300x^3 + 26650x^2 + 99600x + 66000 = 0.
+    CT = 0{,}85\,IT.
+\end{equation}
+
+Como el ingreso total es $IT=Pq$, resulta:
+
+\begin{equation}
+    CT = 0{,}85\,Pq.
+\end{equation}
+
+Dividiendo ambos miembros por la cantidad producida $q$:
+
+\begin{equation}
+    CMe(x) = 0{,}85\,P.
+\end{equation}
+
+En competencia perfecta, el precio de equilibrio es igual al costo marginal:
+
+\begin{equation}
+    P = CMg(x).
+\end{equation}
+
+Por lo tanto, la condición correcta para obtener un beneficio del 15\,\% sobre las ventas es:
+
+\begin{equation}
+    CMe(x) = 0{,}85\,CMg(x).
+\end{equation}
+
+Considerando:
+
+\begin{equation}
+    CMe(x)
+    =
+    \frac{960x+2100}
+    {44x+31x^2-2x^3},
+\end{equation}
+
+y:
+
+\begin{equation}
+    CMg(x)
+    =
+    \frac{960}
+    {44+62x-6x^2},
+\end{equation}
+
+se plantea:
+
+\begin{equation}
+    \frac{960x+2100}
+    {44x+31x^2-2x^3}
+    =
+    0{,}85
+    \frac{960}
+    {44+62x-6x^2}.
+\end{equation}
+
+Operando algebraicamente y simplificando, se obtiene la función cuya raíz se desea calcular:
+
+\begin{equation}
+    f_4(x)
+    =
+    172x^3-901x^2-5689x-3850
+    =
+    0.
     \label{eq:f4}
 \end{equation}
 
-Aplicando el método de Newton-Raphson con una aproximación inicial $x_0 = 8{,}5$, la variable independiente converge de forma exacta a:
+Para aplicar el método de Newton-Raphson se utilizan la primera y la segunda derivada de la función $f_4(x)$. Estas son:
+
 \begin{equation}
-    \boxed{x^{**} = 8{,}97052 \quad \text{(6 c.s.)}}
+    f_4'(x)
+    =
+    516x^2-1802x-5689,
 \end{equation}
 
-Con este valor, evaluamos el costo marginal para hallar el precio de equilibrio por kilogramo:
 \begin{equation}
-    P = \frac{960}{44 + 62 \cdot (8{,}97052) - 6 \cdot (8{,}97052)^2} \approx \$8{,}18042/\text{kg}.
+    f_4''(x)
+    =
+    1032x-1802.
 \end{equation}
 
-El precio de la bolsa de 24\,kg resulta:
+Se adopta como aproximación inicial $x_0=9$. Para justificar esta elección, se verifica el criterio de convergencia:
+
 \begin{equation}
-    \boxed{P_{\text{bolsa}} = 8{,}18042 \times 24 \approx \$196{,}33.}
+    \left|
+    \frac{f_4(x_0)\,f_4''(x_0)}
+    {[f_4'(x_0)]^2}
+    \right|
+    < 1.
+\end{equation}
+
+Por lo tanto, la aproximación inicial $x_0=9$ resulta adecuada para aplicar el método de Newton-Raphson.
+
+Utilizando error relativo y una tolerancia de:
+
+\begin{equation}
+    tol = 5 \times 10^{-6},
+\end{equation}
+
+el método converge a:
+
+\begin{equation}
+    \boxed{x^{**}=9{,}12975 \quad \text{(6 c.s.)}}
+\end{equation}
+
+Con este valor se evalúa el costo marginal para determinar el precio de equilibrio por kilogramo:
+
+\begin{equation}
+    P
+    =
+    CMg(9{,}12975)
+    =
+    \frac{960}
+    {44+62(9{,}12975)-6(9{,}12975)^2}.
+\end{equation}
+
+Finalmente, el precio de la bolsa de 24 kg resulta:
+
+\begin{equation}
+    \boxed{P_{\text{bolsa}}\approx \$209{,}59.}
 \end{equation}
 
 \subsection{Código: Punto 4}
-Códigos para la obtención de la raíz de la función por Newton-Raphson.
+
+Códigos para la obtención de la raíz de la función por Newton-Raphson:
 
 \begin{lstlisting}[language=Python,frame=single,caption=Función cuya raíz desea calcularse,label={cod:funcp4}]
 def formulafunc(xval):
-  yval = 4300 * xval**3 - 26650 * xval**2 - 99600 * xval -66000
-  return yval
+    yval = (
+        172 * xval**3
+        - 901 * xval**2
+        - 5689 * xval
+        - 3850
+    )
+    return yval
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función.,label={cod:der1p4}]
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función,label={cod:der1p4}]
 def formuladerivpri(xval):
-  der1val = 12900 * xval**2 -53300 * xval - 99600
-  return der1val
+    der1val = (
+        516 * xval**2
+        - 1802 * xval
+        - 5689
+    )
+    return der1val
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función.,label={cod:der2p4}]
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función,label={cod:der2p4}]
 def formuladerivseg(xval):
-    der2val = 25800 * xval - 53300
-  return der2val
+    der2val = 1032 * xval - 1802
+    return der2val
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,caption=Cálculo de unidades de factor variable,label={cod:calcP4}]
+Y a continuación, se muestra el código utilizado para aplicar el método de Newton-Raphson.
+
+\begin{lstlisting}[language=Python,frame=single,caption=Aplicación del método de Newton-Raphson,label={cod:calcP4}]
 # Definir valor de la aproximación inicial
 x0 = 9
 
 # Indicar valor de tolerancia
 tol = 5 * 10**(-6)
 
-# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas, en mayúsculas o en minúsculas)
+# Indicar tipo de error a limitar
 tipoerror = 'relativo'
 
 # No modificar las siguientes líneas
 tipoerror = tipoerror.upper()
 
-#Llamado a la función
-tablanewton = newtonraphson(formulafunc,formuladerivpri,formuladerivseg,x0,tol,tipoerror)
+# Llamado a la función
+tablanewton = newtonraphson(
+    formulafunc,
+    formuladerivpri,
+    formuladerivseg,
+    x0,
+    tol,
+    tipoerror
+)
 
-#Resultados
+# Resultados
 raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
-print('Raíz obtenida:',raiz)
+print('Raíz obtenida:', raiz)
 
 if tipoerror == 'ABSOLUTO':
-  cantidad = int(np.floor(- np.log10(tol / 0.5)))
-  redondeopunto4 = float(np.format_float_positional(raiz,cantidad))
-  precision = 'decimales significativos'
-  if cantidad == 1:
-    precision = 'decimal significativo'
+    cantidad = int(np.floor(-np.log10(tol / 0.5)))
+    redondeopunto4 = float(
+        np.format_float_positional(raiz, cantidad)
+    )
+    precision = 'decimales significativos'
+
+    if cantidad == 1:
+        precision = 'decimal significativo'
 
 else:
-  cantidad = int(np.floor(- np.log10(tol / 5)))
-  redondeopunto4 = float(np.format_float_positional(float(np.format_float_scientific(raiz,cantidad-1))))
-  precision = 'cifras significativas'
-  if cantidad == 1:
-    precision = 'cifra significativa'
+    cantidad = int(np.floor(-np.log10(tol / 5)))
+    redondeopunto4 = float(
+        np.format_float_positional(
+            float(
+                np.format_float_scientific(
+                    raiz,
+                    cantidad - 1
+                )
+            )
+        )
+    )
+    precision = 'cifras significativas'
 
-print('Redondeo a',cantidad,precision,redondeopunto4)
+    if cantidad == 1:
+        precision = 'cifra significativa'
+
+print(
+    'Redondeo a',
+    cantidad,
+    precision,
+    redondeopunto4
+)
 
 print('')
 print('Tabla paso a paso')
@@ -445,28 +678,26 @@ print('Formato Colab:')
 tablanewton
 \end{lstlisting}
 
-And a continuación se muestra el código para calcular el precio requerido de la bolsa de 24 kg:
+A continuación, se calcula el precio de la bolsa de 24 kg correspondiente al nivel de producción obtenido.
 
-\begin{lstlisting}[language=Python,frame=single,caption=Cálculo final precio de la bolsa,label={cod:calcbolsa}]
-x15 = redondeopunto4
-
+\begin{lstlisting}[language=Python,frame=single,caption=Cálculo final del precio de la bolsa,label={cod:calcbolsa}]
 x15 = round(redondeopunto4, 5)
+
 CFacVar = CostosFactorVariable
 
-# Cálculo del precio por kg necesario para el equilibrio de mercado
-Precio_kg_15 = CFacVar / (44 + 62 * x15 - 6 * x15**2)
+# Calculo del precio por kg
+Precio_kg_15 = CFacVar / (
+    44 + 62 * x15 - 6 * x15**2
+)
 
-# Cálculo del precio final de la bolsa de 24 kg
+# Calculo del precio de la bolsa de 24 kg
 pbolsa = Precio_kg_15 * 24
 
-print(f"Precio necesario de la bolsa para beneficio del 15%: ${pbolsa:.2f}")
-
+print(
+    f"Precio necesario de la bolsa "
+    f"para beneficio del 15%: ${pbolsa:.2f}"
+)
 \end{lstlisting}
-
-
-
-
-
 
 
 
@@ -474,136 +705,201 @@ print(f"Precio necesario de la bolsa para beneficio del 15%: ${pbolsa:.2f}")
 
 El punto de nivelación se obtiene de la condición analítica $CM_g = CM_e$:
 \begin{equation}
-    \dfrac{960}{44 + 62x - 6x^2} = \dfrac{960x + 2100}{44x + 31x^2 - 2x^3}
+    \dfrac{960}{44 + 62x - 6x^2}
+    =
+    \dfrac{960x + 2100}{44x + 31x^2 - 2x^3}.
     \label{eq:f5}
 \end{equation}
 
 Multiplicando en cruz y agrupando todos los términos en un solo miembro se obtiene el polinomio cúbico equivalente:
 \begin{equation}
-    32x^3 - 143x^2 - 1085x - 770 = 0.
+    f_5(x) = 32x^3 - 143x^2 - 1085x - 770 = 0.
 \end{equation}
 
-La raíz válida dentro del rango operativo real para nuestro grupo es:
+Para aplicar el método de Newton-Raphson se utilizan la primera y la segunda derivada de la función $f_5(x)$. Estas son:
+
+\begin{equation}
+    f_5'(x) = 96x^2 - 286x - 1085,
+\end{equation}
+
+\begin{equation}
+    f_5''(x) = 192x - 286.
+\end{equation}
+
+Se adopta como aproximación inicial $x_0 = 9$. Para justificar esta elección, se verifica el criterio de convergencia:
+
+\begin{equation}
+    \left|
+    \frac{f_5(x_0)\,f_5''(x_0)}
+    {[f_5'(x_0)]^2}
+    \right| < 1.
+\end{equation}
+
+Evaluando en $x_0 = 9$:
+
+\begin{align}
+    f_5(9) &= 32(9)^3 - 143(9)^2 - 1085(9) - 770 = 1210, \\[4pt]
+    f_5'(9) &= 96(9)^2 - 286(9) - 1085 = 4117, \\[4pt]
+    f_5''(9) &= 192(9) - 286 = 1442.
+\end{align}
+
+Por lo tanto:
+
+\begin{equation}
+    \left|
+    \frac{1210 \cdot 1442}
+    {(4117)^2}
+    \right|
+    =
+    0{,}10294 < 1.
+\end{equation}
+
+Por lo tanto, la aproximación inicial $x_0 = 9$ cumple con el criterio de convergencia y resulta adecuada para aplicar el método de Newton-Raphson.
+
+La raíz válida obtenida mediante el método de Newton-Raphson es:
+
 \begin{equation}
     \boxed{x_{\text{niv}} = 8{,}68944 \quad \text{(6 c.s.)}}
 \end{equation}
 
-La producción de papa ($q$) calculada en este punto es:
+Con este valor, la producción de papa resulta:
+
 \begin{equation}
-    q = 44 \cdot 8{,}68944 + 31 \cdot 8{,}68944^2 - 2 \cdot 8{,}68944^3 = 1410{,}816\ \text{kg}.
+    q = 44(8{,}68944) + 31(8{,}68944)^2 - 2(8{,}68944)^3
+    \approx 1410{,}816\ \text{kg}.
 \end{equation}
 
 Sabiendo que las bolsas comerciales se fraccionan en presentaciones de 24\,kg:
+
 \begin{equation}
-    \text{Bolsas} = \frac{1410{,}816}{24} = 58{,}7840
+    \text{Bolsas}
+    =
+    \frac{1410{,}816}{24}
+    =
+    58{,}7840.
 \end{equation}
 
-Se redondea hacia el entero superior para asegurar la cobertura absoluta de los costos medios totales, dando como resultado final:
+Como no es posible vender una fracción de bolsa y se debe asegurar la cobertura de los costos medios totales, se redondea hacia el entero superior. Por lo tanto:
+
 \begin{equation}
     \boxed{\text{Bolsas} = 59\ \text{bolsas}.}
 \end{equation}
 
 \subsection{Código: Punto 5}
-A continuación se muestra el código implementado para resolver numéricamente la raíz 
-de la función de nivelación y determinar el volumen de factor variable óptimo.
 
-La condición $CMg = CMe$ lleva a la ecuación:
-\[
-\frac{960}{44+62x-6x^2} = \frac{960x+2100}{44x+31x^2-2x^3}
-\]
+A continuación se muestran los códigos utilizados para obtener la raíz de la función mediante el método de Newton-Raphson.
 
-Multiplicando en cruz y agrupando todos los términos en un solo miembro se obtiene 
-el polinomio cúbico equivalente:
-\[
-f_5(x) = 32x^3 - 143x^2 - 1085x - 770 = 0
-\]
-
-cuyas derivadas son:
-\[
-f_5'(x) = 96x^2 - 286x - 1085, \qquad f_5''(x) = 192x - 286
-\]
-
-\begin{lstlisting}[language=Python,frame=single,
-    caption=Función de nivelación,label={cod:funcp5}]
+\begin{lstlisting}[language=Python,frame=single,caption=Función de nivelación,label={cod:funcp5}]
 def formulafunc(xval):
     yval = 32 * xval**3 - 143 * xval**2 - 1085 * xval - 770
     return yval
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,
-    caption=Derivada primera de la función de nivelación,label={cod:deriv1p5}]
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada primera de la función de nivelación,label={cod:deriv1p5}]
 def formuladerivpri(xval):
     der1val = 96 * xval**2 - 286 * xval - 1085
     return der1val
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,
-    caption=Derivada segunda de la función de nivelación,label={cod:deriv2p5}]
+\begin{lstlisting}[language=Python,frame=single,caption=Derivada segunda de la función de nivelación,label={cod:deriv2p5}]
 def formuladerivseg(xval):
     der2val = 192 * xval - 286
     return der2val
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python,frame=single,
-    caption=Cálculo de unidades de factor variable necesarias para cubrir costos 
-    medios totales,label={cod:calcp5}]
+Y a continuación, se muestra el código utilizado para aplicar el método de Newton-Raphson.
+
+\begin{lstlisting}[language=Python,frame=single,caption=Aplicación del método de Newton-Raphson,label={cod:calcp5}]
 # Definir valor de la aproximación inicial
 x0 = 9
 
 # Indicar valor de tolerancia
 tol = 5 * 10**(-6)
 
-# Indicar tipo de error a limitar ('absoluto' o 'relativo', entre comillas,
-# en mayúsculas o en minúsculas)
+# Indicar tipo de error a limitar
 tipoerror = 'relativo'
 
 # No modificar las siguientes líneas
 tipoerror = tipoerror.upper()
 
 # Llamado a la función
-tablanewton = newtonraphson(formulafunc, formuladerivpri, formuladerivseg,
-                            x0, tol, tipoerror)
+tablanewton = newtonraphson(
+    formulafunc,
+    formuladerivpri,
+    formuladerivseg,
+    x0,
+    tol,
+    tipoerror
+)
 
 # Resultados
 raiz = tablanewton["x(i+1)"][tablanewton.index.max()]
 print('Raíz obtenida:', raiz)
 
 if tipoerror == 'ABSOLUTO':
-    cantidad = int(np.floor(- np.log10(tol / 0.5)))
-    redondeopunto5 = float(np.format_float_positional(raiz, cantidad))
+    cantidad = int(np.floor(-np.log10(tol / 0.5)))
+    redondeopunto5 = float(
+        np.format_float_positional(raiz, cantidad)
+    )
     precision = 'decimales significativos'
+
     if cantidad == 1:
         precision = 'decimal significativo'
+
 else:
-    cantidad = int(np.floor(- np.log10(tol / 5)))
-    redondeopunto5 = float(np.format_float_positional(
-                    float(np.format_float_scientific(raiz, cantidad-1))))
+    cantidad = int(np.floor(-np.log10(tol / 5)))
+    redondeopunto5 = float(
+        np.format_float_positional(
+            float(
+                np.format_float_scientific(
+                    raiz,
+                    cantidad - 1
+                )
+            )
+        )
+    )
     precision = 'cifras significativas'
+
     if cantidad == 1:
         precision = 'cifra significativa'
 
-print('Redondeo a', cantidad, precision, redondeopunto5)
+print(
+    'Redondeo a',
+    cantidad,
+    precision,
+    redondeopunto5
+)
+
 print('')
 print('Tabla paso a paso')
+
 print('Formato LaTeX:')
 print('')
 print(tablanewton.to_latex())
+
 print('')
 print('Formato Colab:')
+
 tablanewton
 \end{lstlisting}
 
-Finalmente, se calcula la cantidad de bolsas a vender para cubrir los costos medios 
-totales, utilizando el valor de $x$ obtenido en el punto anterior.
+Finalmente, se calcula la cantidad de bolsas a vender para cubrir los costos medios totales utilizando el valor de $x$ obtenido mediante el método de Newton-Raphson.
 
-\begin{lstlisting}[language=Python,frame=single,
-    caption=Cantidad de bolsas finales,label={cod:calcfinalp5}]
+\begin{lstlisting}[language=Python,frame=single,caption=Cantidad de bolsas finales,label={cod:calcfinalp5}]
 x_nivelacion = redondeopunto5
 
-# Cálculo de la producción q en base a las unidades de factor variable halladas
-q_nivelacion = 44 * x_nivelacion + 31 * x_nivelacion**2 - 2 * x_nivelacion**3
+# Calculo de la produccion q
+q_nivelacion = (
+    44 * x_nivelacion
+    + 31 * x_nivelacion**2
+    - 2 * x_nivelacion**3
+)
 
-# Determinación de la cantidad mínima de bolsas de 24 kg necesarias
+# Cantidad de bolsas de 24 kg
 bolsasniv = q_nivelacion / 24
-print(f"Bolsas mínimas a vender para cubrir costos medios totales: {bolsasniv:.2f}")
+
+print(
+    f"Bolsas minimas a vender para cubrir costos medios totales: "
+    f"{bolsasniv:.2f}"
+)
 \end{lstlisting}
