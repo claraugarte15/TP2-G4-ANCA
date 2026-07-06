@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.1)  5 JUL 2026 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.1)  5 JUL 2026 23:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -832,8 +832,12 @@ Package csquotes Info: Redefining alias 'default' -> 'spanish'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 210.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-No file "Proyecto Ejemplo - Versión Grupal".aux.
+) (./Proyecto Ejemplo - Versión Grupal.aux (./tapa.aux)
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 13.
+ (./indice.aux) (./intro.aux) (./implement.aux) (./resultados.aux) (./discusion.aux) (./apendice_A.aux))
 \openout1 = `"Proyecto Ejemplo - Versión Grupal.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 210.
@@ -854,6 +858,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 210.
 LaTeX Font Info:    ... okay on input line 210.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 210.
 LaTeX Font Info:    ... okay on input line 210.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -890,8 +895,6 @@ LaTeX Font Info:    ... okay on input line 210.
 
 LaTeX Info: Redefining \. on input line 210.
 LaTeX Info: Redefining \% on input line 210.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 210.
 (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count502
@@ -919,10 +922,11 @@ Package caption Info: End \AtBeginDocument code.
 Couldn't patch \ttl@straight@ii
 Couldn't patch \ttl@straight@ii
 Package hyperref Info: Link coloring OFF on input line 210.
+(./Proyecto Ejemplo - Versión Grupal.out) (./Proyecto Ejemplo - Versión Grupal.out)
 \@outlinefile=\write4
 \openout4 = `"Proyecto Ejemplo - Versión Grupal.out"'.
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 210.
@@ -980,7 +984,7 @@ Package biblatex Info: Reference segment=0 on input line 210.
 \openout2 = `tapa.aux'.
 
  (./tapa.tex
-<imagenes/Logos-UTN-BA.png, id=4, 225.84375pt x 127.22531pt>
+<imagenes/Logos-UTN-BA.png, id=108, 225.84375pt x 127.22531pt>
 File: imagenes/Logos-UTN-BA.png Graphic file (type png)
 <use imagenes/Logos-UTN-BA.png>
 Package pdftex.def Info: imagenes/Logos-UTN-BA.png  used on input line 89.
@@ -995,61 +999,69 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 \c@mypageno=\count509
 \openout2 = `indice.aux'.
 
- (./indice.tex
-No file "Proyecto Ejemplo - Versión Grupal".toc.
-\tf@toc=\write5
-\openout5 = `"Proyecto Ejemplo - Versión Grupal.toc"'.
-
-[2
-
-
-
-
-]
-No file "Proyecto Ejemplo - Versión Grupal".lof.
-\tf@lof=\write6
-\openout6 = `"Proyecto Ejemplo - Versión Grupal.lof"'.
-
-[3
-
-]
-No file "Proyecto Ejemplo - Versión Grupal".lot.
-\tf@lot=\write7
-\openout7 = `"Proyecto Ejemplo - Versión Grupal.lot"'.
-
-[4
-
-] (./Proyecto Ejemplo - Versión Grupal.lol
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1.
+ (./indice.tex (./Proyecto Ejemplo - Versión Grupal.toc
+LaTeX Info: Redefining \sptext on input line 1.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 1.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 1.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 1.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
+\tf@toc=\write5
+\openout5 = `"Proyecto Ejemplo - Versión Grupal.toc"'.
+
+ [2
+
+
+
+
+] (./Proyecto Ejemplo - Versión Grupal.lof
+LaTeX Info: Redefining \sptext on input line 1.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lof=\write6
+\openout6 = `"Proyecto Ejemplo - Versión Grupal.lof"'.
+
+ [3
+
+] (./Proyecto Ejemplo - Versión Grupal.lot
+LaTeX Info: Redefining \sptext on input line 1.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lot=\write7
+\openout7 = `"Proyecto Ejemplo - Versión Grupal.lot"'.
+
+ [4
+
+] (./Proyecto Ejemplo - Versión Grupal.lol)
 \tf@lol=\write8
 \openout8 = `"Proyecto Ejemplo - Versión Grupal.lol"'.
 
@@ -1067,28 +1079,11 @@ l.53
 
 
 
-{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-
-./intro.tex:54: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.54 \\s
-        ubsubsection{Newton-Raphson}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-) [2{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]) [2{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 \openout2 = `implement.aux'.
 
  (./implement.tex
 Cap\'{\i }tulo 1.
-
-LaTeX Warning: Reference `cod:paquete' on page 3 undefined on input line 38.
-
 (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1101,11 +1096,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 
 
-]
-
-LaTeX Warning: Reference `cod:codgraf' on page 4 undefined on input line 56.
-
-[4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
+] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 698.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1117,12 +1108,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
  (./resultados.tex
 Cap\'{\i }tulo 2.
-<imagenes/costo.factor.var.png, id=680, 566.115pt x 452.69125pt>
+<imagenes/costo.factor.var.png, id=840, 566.115pt x 452.69125pt>
 File: imagenes/costo.factor.var.png Graphic file (type png)
 <use imagenes/costo.factor.var.png>
 Package pdftex.def Info: imagenes/costo.factor.var.png  used on input line 10.
 (pdftex.def)             Requested size: 364.19667pt x 291.23415pt.
-<imagenes/costo.kg.png, id=681, 572.1375pt x 449.68pt>
+<imagenes/costo.kg.png, id=841, 572.1375pt x 449.68pt>
 File: imagenes/costo.kg.png Graphic file (type png)
 <use imagenes/costo.kg.png>
 Package pdftex.def Info: imagenes/costo.kg.png  used on input line 16.
@@ -1133,16 +1124,12 @@ Package pdftex.def Info: imagenes/costo.kg.png  used on input line 16.
 
 
  <./imagenes/costo.factor.var.png>]
-<imagenes/c.oferta.nueva.png, id=690, 503.7219pt x 339.669pt>
+<imagenes/c.oferta.nueva.png, id=847, 503.7219pt x 339.669pt>
 File: imagenes/c.oferta.nueva.png Graphic file (type png)
 <use imagenes/c.oferta.nueva.png>
 Package pdftex.def Info: imagenes/c.oferta.nueva.png  used on input line 22.
 (pdftex.def)             Requested size: 364.19667pt x 245.58252pt.
-
-
-LaTeX Warning: Reference `tab:punto3' on page 19 undefined on input line 50.
-
-[19 <./imagenes/costo.kg.png> <./imagenes/c.oferta.nueva.png>] [20] [21]) [22]
+ [19 <./imagenes/costo.kg.png> <./imagenes/c.oferta.nueva.png>] [20] [21]) [22]
 \openout2 = `discusion.aux'.
 
  (./discusion.tex
@@ -1180,43 +1167,25 @@ LaTeX Info: Redefining \% on input line 13.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `"Proyecto Ejemplo - Versión Grupal".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Proyecto Ejemplo - Versión Grupal".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  3A27958E7D07C28FCE2653ADDEBAC0D3;4468.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                "Proyecto Ejemplo - Versión Grupal"
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `"Proyecto Ejemplo - Versión Grupal".out' has not changed.
+(rerunfilecheck)             Checksum: 3A27958E7D07C28FCE2653ADDEBAC0D3;4468.
 Package logreq Info: Writing requests to '"Proyecto Ejemplo - Versión Grupal".run.xml'.
 \openout1 = `"Proyecto Ejemplo - Versión Grupal.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31761 strings out of 467525
- 608904 string characters out of 5418983
- 1892176 words of memory out of 5000000
- 59679 multiletter control sequences out of 15000+600000
+ 31830 strings out of 467525
+ 610309 string characters out of 5418983
+ 1914062 words of memory out of 5000000
+ 59722 multiletter control sequences out of 15000+600000
  699919 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,13n,79p,1216b,4990s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on "Proyecto Ejemplo - Versión Grupal.pdf" (30 pages, 697165 bytes).
+Output written on "Proyecto Ejemplo - Versión Grupal.pdf" (30 pages, 702341 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
- 866 compressed objects within 9 object streams
+ 1090 PDF objects out of 1200 (max. 8388607)
+ 1012 compressed objects within 11 object streams
  578 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -238,6 +238,30 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
+INPUT ./Proyecto Ejemplo - Versión Grupal.aux
+INPUT ./Proyecto Ejemplo - Versión Grupal.aux
+INPUT Proyecto Ejemplo - Versión Grupal.aux
+INPUT ./tapa.aux
+INPUT ./tapa.aux
+INPUT tapa.aux
+INPUT ./indice.aux
+INPUT ./indice.aux
+INPUT indice.aux
+INPUT ./intro.aux
+INPUT ./intro.aux
+INPUT intro.aux
+INPUT ./implement.aux
+INPUT ./implement.aux
+INPUT implement.aux
+INPUT ./resultados.aux
+INPUT ./resultados.aux
+INPUT resultados.aux
+INPUT ./discusion.aux
+INPUT ./discusion.aux
+INPUT discusion.aux
+INPUT ./apendice_A.aux
+INPUT ./apendice_A.aux
+INPUT apendice_A.aux
 OUTPUT Proyecto Ejemplo - Versión Grupal.aux
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -247,8 +271,14 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-OUTPUT Proyecto Ejemplo - Versión Grupal.out
+INPUT ./Proyecto Ejemplo - Versión Grupal.out
+INPUT ./Proyecto Ejemplo - Versión Grupal.out
+INPUT Proyecto Ejemplo - Versión Grupal.out
+INPUT Proyecto Ejemplo - Versión Grupal.out
 OUTPUT Proyecto Ejemplo - Versión Grupal.pdf
+INPUT ./Proyecto Ejemplo - Versión Grupal.out
+INPUT ./Proyecto Ejemplo - Versión Grupal.out
+OUTPUT Proyecto Ejemplo - Versión Grupal.out
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
@@ -315,12 +345,9 @@ OUTPUT indice.aux
 INPUT ./indice.tex
 INPUT ./indice.tex
 INPUT indice.tex
-OUTPUT Proyecto Ejemplo - Versión Grupal.toc
-OUTPUT Proyecto Ejemplo - Versión Grupal.lof
-OUTPUT Proyecto Ejemplo - Versión Grupal.lot
-INPUT ./Proyecto Ejemplo - Versión Grupal.lol
-INPUT ./Proyecto Ejemplo - Versión Grupal.lol
-INPUT Proyecto Ejemplo - Versión Grupal.lol
+INPUT ./Proyecto Ejemplo - Versión Grupal.toc
+INPUT ./Proyecto Ejemplo - Versión Grupal.toc
+INPUT Proyecto Ejemplo - Versión Grupal.toc
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -355,6 +382,19 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+OUTPUT Proyecto Ejemplo - Versión Grupal.toc
+INPUT ./Proyecto Ejemplo - Versión Grupal.lof
+INPUT ./Proyecto Ejemplo - Versión Grupal.lof
+INPUT Proyecto Ejemplo - Versión Grupal.lof
+OUTPUT Proyecto Ejemplo - Versión Grupal.lof
+INPUT ./Proyecto Ejemplo - Versión Grupal.lot
+INPUT ./Proyecto Ejemplo - Versión Grupal.lot
+INPUT Proyecto Ejemplo - Versión Grupal.lot
+OUTPUT Proyecto Ejemplo - Versión Grupal.lot
+INPUT ./Proyecto Ejemplo - Versión Grupal.lol
+INPUT ./Proyecto Ejemplo - Versión Grupal.lol
+INPUT Proyecto Ejemplo - Versión Grupal.lol
 OUTPUT Proyecto Ejemplo - Versión Grupal.lol
 INPUT ./intro.tex
 INPUT ./intro.tex
@@ -363,7 +403,6 @@ INPUT ./intro.tex
 INPUT ./intro.tex
 INPUT intro.tex
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
@@ -460,6 +499,7 @@ INPUT ./apendice_A.aux
 INPUT apendice_A.aux
 INPUT ./Proyecto Ejemplo - Versión Grupal.out
 INPUT ./Proyecto Ejemplo - Versión Grupal.out
+INPUT Proyecto Ejemplo - Versión Grupal.run.xml
 OUTPUT Proyecto Ejemplo - Versión Grupal.run.xml
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
